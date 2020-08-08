@@ -355,12 +355,8 @@ http://www.templatemo.com/tm-500-fluid-gallery
                                     </div>
                                 </div>
                                                 {% endif %}     
-                            </div>    
-                        </div>
-                    </div> <!-- .cd-full-width -->
-                </li>
 
-            </ul> <!-- .cd-hero-slider -->
+
 
             <!-- Pop ups for the listing -->
             {% for listing in listings %}
@@ -526,6 +522,7 @@ http://www.templatemo.com/tm-500-fluid-gallery
                 var dog_listing = [];
                 var cat_listing = [];
                 var other_listing = [];
+                var user_listing = [];
                 for (listing_data of listings_data) {
                     switch (listing_data["animal"]) {
                         case "dog":
@@ -534,8 +531,12 @@ http://www.templatemo.com/tm-500-fluid-gallery
                         case "cat":
                             cat_listing.push(listing_data);
                             break;
-                        default:
+                        case "other animals":
                             other_listing.push(listing_data);
+                            break;
+                        default:
+                            user_listing.push(listings_data);
+                            break
                     }
                 }
 
@@ -586,6 +587,22 @@ http://www.templatemo.com/tm-500-fluid-gallery
                         }
                     });
                 }
+
+                for (const [idx, user_listing_el] of Object.entries(user_listing)) {
+                    $('#' + user_listing_el.listing_id).magnificPopup({
+                        items: user_listing.map(mapListingItems),
+                        key: 'user',
+                        index: parseInt(idx, 10),
+                        type: 'image',
+                        gallery:{
+                            enabled:true,
+                            preload: [4,4]
+                        }
+                    });
+                }
+
+
+                
 
                 /* Collapse menu after click 
                 -----------------------------------------*/
