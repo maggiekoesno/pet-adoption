@@ -3,7 +3,7 @@ Flask==1.1.2
 flask-login
 firebase_admin
 Flask-WTF==0.14.2
-Werkzeug==0.15.6
+Werkzeug==2.2.3
 WTForms==2.2.1
 flask-bootstrap==3.3.7.1
 Flask-Mail==0.9.1
