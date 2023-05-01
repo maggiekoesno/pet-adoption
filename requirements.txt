@@ -1,5 +1,5 @@
 pylint
-Flask==1.1.2
+Flask==2.3.2
 flask-login
 firebase_admin
 Flask-WTF==0.14.2
